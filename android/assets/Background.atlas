@@ -1,0 +1,110 @@
+
+Background.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+NearStar0
+  rotate: false
+  xy: 1, 9
+  size: 5, 5
+  orig: 5, 5
+  offset: 0, 0
+  index: -1
+NearStar1
+  rotate: false
+  xy: 1, 2
+  size: 5, 5
+  orig: 5, 5
+  offset: 0, 0
+  index: -1
+NearStar2
+  rotate: false
+  xy: 8, 9
+  size: 5, 5
+  orig: 5, 5
+  offset: 0, 0
+  index: -1
+NearStar3
+  rotate: false
+  xy: 8, 2
+  size: 5, 5
+  orig: 5, 5
+  offset: 0, 0
+  index: -1
+NearStar4
+  rotate: false
+  xy: 15, 9
+  size: 5, 5
+  orig: 5, 5
+  offset: 0, 0
+  index: -1
+MiddleStar0
+  rotate: false
+  xy: 15, 4
+  size: 3, 3
+  orig: 3, 3
+  offset: 0, 0
+  index: -1
+MiddleStar1
+  rotate: false
+  xy: 22, 11
+  size: 3, 3
+  orig: 3, 3
+  offset: 0, 0
+  index: -1
+MiddleStar2
+  rotate: false
+  xy: 27, 11
+  size: 3, 3
+  orig: 3, 3
+  offset: 0, 0
+  index: -1
+MiddleStar3
+  rotate: false
+  xy: 20, 4
+  size: 3, 3
+  orig: 3, 3
+  offset: 0, 0
+  index: -1
+MiddleStar4
+  rotate: false
+  xy: 25, 6
+  size: 3, 3
+  orig: 3, 3
+  offset: 0, 0
+  index: -1
+FarStar0
+  rotate: false
+  xy: 30, 8
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+FarStar1
+  rotate: false
+  xy: 30, 5
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+FarStar2
+  rotate: false
+  xy: 15, 1
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+FarStar3
+  rotate: false
+  xy: 18, 1
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+FarStar4
+  rotate: false
+  xy: 21, 1
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
