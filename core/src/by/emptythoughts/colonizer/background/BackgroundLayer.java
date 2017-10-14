@@ -12,11 +12,13 @@ public class BackgroundLayer {
     public BackgroundLayer(byte distance) {
         Random rand = new Random();
         short objectsGap = (short) Math.pow(Registry.backgroundObjectsGapConst, distance);
+        short currentGap = (short) rand.nextInt(objectsGap);
 
         layerObjects = new BackgroundObject[Registry.viewportHeight / objectsGap];
         for (short i = 0; i < layerObjects.length; i++) {
-            layerObjects[i] = new BackgroundObject((short) rand.nextInt(Registry.viewportWidth), (short) (i * objectsGap),
+            layerObjects[i] = new BackgroundObject((short) rand.nextInt(Registry.viewportWidth), currentGap,
                     TextureHandler.getBackgroundObjectTexture(distance, (byte) rand.nextInt(Registry.backgroundObjectsNum)));
+            currentGap += objectsGap;
         }
     }
 
