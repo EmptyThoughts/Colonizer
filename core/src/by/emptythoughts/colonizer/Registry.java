@@ -8,5 +8,7 @@ public class Registry {
     public static final byte backgroundObjectsGapConst = 10;
     public static final byte backgroundMaxDistance = 3;
 
-    public static final byte cameraPositionZ = 10;
+    public static final short planetRadius = 150;
+
+    public static final byte cameraPositionZ = 5;
 }
