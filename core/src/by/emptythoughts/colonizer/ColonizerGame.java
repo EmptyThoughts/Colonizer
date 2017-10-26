@@ -20,7 +20,7 @@ public class ColonizerGame extends ApplicationAdapter {
     public void create() {
         Camera camera = new OrthographicCamera();
         Actor debugActor = new DebugActor();
-        Planet planet = new Planet(TextureGenerator.generatePlanetTexture());
+        Planet planet = new Planet(TextureGenerator.generatePlanetTexture((short) 50, 0));
 
         debugActor.setZIndex(Registry.cameraPositionZ);
         planet.setZIndex(1);
