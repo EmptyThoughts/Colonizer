@@ -2,6 +2,7 @@ package by.emptythoughts.colonizer;
 
 import by.emptythoughts.colonizer.background.Background;
 import by.emptythoughts.colonizer.graphics.TextureGenerator;
+import by.emptythoughts.colonizer.gui.NavigationDrawer;
 import by.emptythoughts.colonizer.space.Planet;
 import by.emptythoughts.utils.DebugActor;
 import com.badlogic.gdx.ApplicationAdapter;
@@ -20,16 +21,24 @@ public class ColonizerGame extends ApplicationAdapter {
     public void create() {
         Camera camera = new OrthographicCamera();
         Actor debugActor = new DebugActor();
+        Background background = new Background();
         Planet planet = new Planet(TextureGenerator.generatePlanetTexture());
+        NavigationDrawer navigationDrawer = new NavigationDrawer(TextureGenerator.generateNavigationDrawerTexture());
 
-        debugActor.setZIndex(Registry.cameraPositionZ);
-        planet.setZIndex(1);
         camera.position.set(camera.viewportWidth / 2, camera.viewportHeight / 2, Registry.cameraPositionZ);
-
         mainStage = new Stage(new ScreenViewport(camera));
+
         mainStage.addActor(debugActor);
-        mainStage.addActor(new Background());
+        mainStage.addActor(background);
         mainStage.addActor(planet);
+        mainStage.addActor(navigationDrawer);
+
+        background.setZIndex(0);
+        planet.setZIndex(1);
+        navigationDrawer.setZIndex(2);
+        debugActor.setZIndex(3);
+
+        Gdx.input.setInputProcessor(mainStage);
     }
 
     @Override

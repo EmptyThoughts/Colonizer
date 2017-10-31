@@ -10,5 +10,5 @@ public class Registry {
 
     public static final short planetRadius = 150;
 
-    public static final byte cameraPositionZ = 5;
+    public static final byte cameraPositionZ = 127;
 }
