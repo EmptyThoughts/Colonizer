@@ -43,7 +43,7 @@ public class PerlinNoise {
         return mix(leftContribution, rightContribution, fadeX);
     }
 
-    public float generate(float x, float y) {
+    public float generate(float x) {
         float noiseSum = 0;
         float octaveFrequency = scale;
         float octaveWeight = 1;
