@@ -1,7 +1,7 @@
 package by.emptythoughts.colonizer.graphics;
 
 import by.emptythoughts.colonizer.space.PlanetLayer;
-import by.emptythoughts.colonizer.util.PerlinNoise;
+import by.emptythoughts.utils.PerlinNoise;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 
