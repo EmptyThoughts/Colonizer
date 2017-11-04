@@ -1,4 +1,4 @@
-package by.emptythoughts.colonizer.util;
+package by.emptythoughts.utils;
 
 public class MathUtility {
     public static float avg(float... args) {

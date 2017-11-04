@@ -1,4 +1,4 @@
-package by.emptythoughts.colonizer.util;
+package by.emptythoughts.utils;
 
 import java.util.Random;
 
