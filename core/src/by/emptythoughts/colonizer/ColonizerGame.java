@@ -13,7 +13,6 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.sun.org.apache.regexp.internal.RE;
 
 public class ColonizerGame extends ApplicationAdapter {
     private Stage mainStage;
@@ -23,10 +22,10 @@ public class ColonizerGame extends ApplicationAdapter {
         Camera camera = new OrthographicCamera();
         Actor debugActor = new DebugActor();
         Planet planet = new Planet(TextureGenerator.generatePlanetTexture(Registry.octavesNum, Registry.roughness,
-                Registry.scale, Registry.nodesNum,
-                new PlanetLayer(Registry.planetRadius, Registry.maxHillHeight, 0, 0, 0.4f, 0.4f, 1),
-                new PlanetLayer((short)(Registry.planetRadius * 2 / 3), (short)(Registry.maxHillHeight * 2 / 3), 1, 0.2f, 0.1f, 0, 1),
-                new PlanetLayer((short)(Registry.planetRadius / 5), (short)(Registry.maxHillHeight / 5), 2, 1f, 0.75f, 0, 1)));
+                Registry.scale, Registry.stepCoef, Registry.nodesNum,
+                new PlanetLayer(Registry.planetRadius, Registry.maxHillHeight, System.nanoTime(), 0, 0.4f, 0.4f, 1),
+                new PlanetLayer((short) (Registry.planetRadius * 7 / 8), (short) 0, System.nanoTime(), 1f, 0.75f, 0.1f, 1),
+                new PlanetLayer((short) (Registry.planetRadius / 5), (short) 0, System.nanoTime(), 1f, 1f, 0, 1)));
 
         debugActor.setZIndex(Registry.cameraPositionZ);
         planet.setZIndex(1);

@@ -1,13 +1,15 @@
-package by.emptythoughts.utils;
+package by.emptythoughts.utils.perlinnoise;
+
+import by.emptythoughts.utils.MathUtility;
 
 import java.util.Random;
 
 public class PerlinNoise {
     private byte[] gradients;
 
-    private byte octaves;
-    private float roughness;
-    private float scale;
+    protected final byte octaves;
+    protected final float roughness;
+    protected final float scale;
 
     public PerlinNoise(byte octaves, float roughness, float scale, long seed) {
         Random rand = new Random(seed);
@@ -28,7 +30,7 @@ public class PerlinNoise {
         return t * t * t * (t * (t * 6 - 15) + 10);
     }
 
-    private float generatePerlinNoise(float x) {
+    public float generatePerlinNoise(float x) {
         int leftBorder = MathUtility.floor(x);
         float unitCoord = x - leftBorder;
 
@@ -43,7 +45,7 @@ public class PerlinNoise {
         return mix(leftContribution, rightContribution, fadeX);
     }
 
-    public float generate(float x) {
+    public float generateOctaved(float x) {
         float noiseSum = 0;
         float octaveFrequency = scale;
         float octaveWeight = 1;
