@@ -1,7 +1,7 @@
 package by.emptythoughts.colonizer.graphics;
 
 import by.emptythoughts.colonizer.space.PlanetLayer;
-import by.emptythoughts.utils.PerlinNoise;
+import by.emptythoughts.utils.perlinnoise.PerlinNoiseClosed;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 
@@ -11,8 +11,9 @@ import java.util.Comparator;
 public class TextureGenerator {
     private static Pixmap pixmap;
 
-    public static Texture generatePlanetTexture(byte octavesNum, float roughness, float scale, short maxNodeNum, PlanetLayer... layers) {
-        PerlinNoise noise;
+    public static Texture generatePlanetTexture(byte octavesNum, float roughness, float scale, float stepCoef,
+                                                short maxNodeNum, PlanetLayer... layers) {
+        PerlinNoiseClosed noise;
         Texture result;
         int[] vertices;
         short planetRadius;
@@ -33,19 +34,19 @@ public class TextureGenerator {
         pixmap = new Pixmap(2 * (planetRadius + layers[0].getMaxHillHeight()),
                 2 * (planetRadius + layers[0].getMaxHillHeight()), Pixmap.Format.RGBA8888);
 
-        for (int i = 0; i < layers.length; i++) {
-            noise = new PerlinNoise(octavesNum, roughness, scale, layers[i].getGeneratorSeed());
-            currentNodeNum = (short)Math.round(maxNodeNum * layers[i].getRadius() / planetRadius);
+        for (PlanetLayer layer : layers) {
+            noise = new PerlinNoiseClosed(octavesNum, roughness, scale, stepCoef, layer.getGeneratorSeed());
+            currentNodeNum = (short) Math.round(maxNodeNum * layer.getRadius() / planetRadius);
             vertices = new int[2 * currentNodeNum];
 
             for (int j = 0; j < vertices.length; j += 2) {
-                currentRadius = layers[i].getRadius() + layers[i].getMaxHillHeight() * noise.generate(j);
+                currentRadius = layer.getRadius() + layer.getMaxHillHeight() * noise.generateOctavedClosed(j / 2, currentNodeNum);
                 currentRadians = (float) (j * Math.PI / currentNodeNum);
                 vertices[j] = offset + (int) Math.round(currentRadius * Math.cos(currentRadians));
                 vertices[j + 1] = offset + (int) Math.round(currentRadius * Math.sin(currentRadians));
             }
 
-            pixmap.setColor(layers[i].getColor());
+            pixmap.setColor(layer.getColor());
             for (int j = 0; j < vertices.length - 2; j += 2) {
                 pixmap.fillTriangle(vertices[j], vertices[j + 1], vertices[j + 2], vertices[j + 3], offset, offset);
             }
