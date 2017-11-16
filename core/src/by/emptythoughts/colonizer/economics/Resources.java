@@ -33,8 +33,9 @@ public class Resources {
         try {
             List<Resource> list = new ArrayList<Resource>();
             BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(filePath)));
-            while (list.add(new Resource(bufferedReader.readLine()))) {
-
+            String string;
+            while ((string = bufferedReader.readLine()) != null) {
+                list.add(new Resource(string));
             }
             return list;
         } catch (IOException exception) {
