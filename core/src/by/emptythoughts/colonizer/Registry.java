@@ -26,5 +26,5 @@ public class Registry {
 
     public static final float NAVIGATION_DRAWER_ALWAYS_SHOW_PART_WIDTH = 100f;
     public static final float NAVIGATION_DRAWER_MARGIN_END = 100f;
-    public static final float NAVIGATION_DRAWER_TWEEN_DURATION = 0.1f;
+    public static final float NAVIGATION_DRAWER_TWEEN_DURATION = 0.15f;
 }

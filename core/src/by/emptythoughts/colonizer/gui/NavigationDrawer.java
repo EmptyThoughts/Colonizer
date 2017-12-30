@@ -23,6 +23,7 @@ public class NavigationDrawer extends Actor {
     private boolean isOpened;
     private float beginPosition;
     private float endPosition;
+    private float differenceEndBeginPosition;
 
     public NavigationDrawer(Sprite sprite, TweenManager tweenManager, float alwaysShowPartWidth, float endPosition) {
         this.navigationDrawerSprite = sprite;
@@ -35,6 +36,7 @@ public class NavigationDrawer extends Actor {
         this.isOpened = false;
         this.beginPosition = alwaysShowPartWidth - getWidth();
         this.endPosition = endPosition - getWidth();
+        this.differenceEndBeginPosition = this.endPosition - this.beginPosition;
         setX(beginPosition);
         addListener();
     }
@@ -88,19 +90,23 @@ public class NavigationDrawer extends Actor {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 float touchDownUpDifference;
+                float durationCoef;
                 Vector2 touchUpPosition = new Vector2(x, y);
                 localToStageCoordinates(touchUpPosition);
                 touchDownUpDifference = touchDownStagePosition.x - touchUpPosition.x;
 
                 if (touchDownUpDifference > 0 && isOpened) {
-
-                    Tween.to(NavigationDrawer.this, NavigationDrawerAccessor.POSITION, Registry.NAVIGATION_DRAWER_TWEEN_DURATION)
+                    durationCoef = (getX() - beginPosition) / differenceEndBeginPosition;
+                    Tween.to(NavigationDrawer.this, NavigationDrawerAccessor.POSITION,
+                            Registry.NAVIGATION_DRAWER_TWEEN_DURATION * durationCoef)
                             .target(beginPosition, getY())
                             .ease(TweenEquations.easeNone)
                             .start(tweenManager);
                     isOpened = !isOpened;
                 } else if (touchDownUpDifference < 0 && !isOpened) {
-                    Tween.to(NavigationDrawer.this, NavigationDrawerAccessor.POSITION, Registry.NAVIGATION_DRAWER_TWEEN_DURATION)
+                    durationCoef = (endPosition - getX()) / differenceEndBeginPosition;
+                    Tween.to(NavigationDrawer.this, NavigationDrawerAccessor.POSITION,
+                            Registry.NAVIGATION_DRAWER_TWEEN_DURATION * durationCoef)
                             .target(endPosition, getY())
                             .ease(TweenEquations.easeNone)
                             .start(tweenManager);
