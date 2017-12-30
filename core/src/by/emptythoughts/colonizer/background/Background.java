@@ -8,8 +8,8 @@ public class Background extends Actor {
     private BackgroundLayer[] layers;
 
     public Background() {
-        layers = new BackgroundLayer[Registry.backgroundMaxDistance];
-        for (byte i = 0; i < Registry.backgroundMaxDistance; i++) {
+        layers = new BackgroundLayer[Registry.BACKGROUND_MAX_DISTANCE];
+        for (byte i = 0; i < Registry.BACKGROUND_MAX_DISTANCE; i++) {
             layers[i] = new BackgroundLayer(i);
         }
     }

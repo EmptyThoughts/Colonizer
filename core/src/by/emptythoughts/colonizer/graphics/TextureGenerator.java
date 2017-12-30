@@ -1,8 +1,6 @@
 package by.emptythoughts.colonizer.graphics;
 
 import by.emptythoughts.colonizer.Registry;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import by.emptythoughts.colonizer.space.PlanetLayer;
 import by.emptythoughts.utils.perlinnoise.PerlinNoiseClosed;
@@ -65,9 +63,9 @@ public class TextureGenerator {
 
     public static Texture generateNavigationDrawerTexture() {
         Texture result;
-        pixmap = new Pixmap(Registry.viewportWidth, Registry.viewportHeight, Pixmap.Format.RGBA8888);
+        pixmap = new Pixmap(Registry.VIEWPORT_WIDTH, Registry.VIEWPORT_HEIGHT, Pixmap.Format.RGBA8888);
 
-        pixmap.setColor(Color.GRAY);
+        pixmap.setColor(Color.WHITE);
         pixmap.fillRectangle(0, 0, pixmap.getWidth(), pixmap.getHeight());
 
         result = new Texture(pixmap);

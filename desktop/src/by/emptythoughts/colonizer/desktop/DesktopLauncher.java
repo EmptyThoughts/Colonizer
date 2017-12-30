@@ -10,8 +10,8 @@ public class DesktopLauncher {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 
 		config.title = "Colonizer";
-		config.width = Registry.viewportWidth;
-		config.height = Registry.viewportHeight;
+		config.width = Registry.VIEWPORT_WIDTH;
+		config.height = Registry.VIEWPORT_HEIGHT;
 		config.vSyncEnabled = false;
 		config.foregroundFPS = 0;
 		config.backgroundFPS = 0;
